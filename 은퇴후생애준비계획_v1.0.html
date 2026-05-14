@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>은퇴 후 생애전환 준비 계획 — 연우 Family</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --ink-light: #3a3a5c;
+    --paper: #faf8f3;
+    --paper-warm: #f4f0e6;
+    --gold: #c9a84c;
+    --gold-light: #e8d5a3;
+    --gold-pale: #fdf6e3;
+    --accent: #8b4513;
+    --accent-light: #cd853f;
+    --teal: #2c6e6e;
+    --teal-light: #4a9e9e;
+    --red: #8b2222;
+    --border: #d4c5a9;
+    --shadow: rgba(26,26,46,0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 14px;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 40px 60px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.18) 0%, transparent 70%);
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--accent-light), var(--gold));
+  }
+  .cover-eyebrow {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+  .cover-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 48px;
+    line-height: 1.15;
+    margin-bottom: 8px;
+    color: #fff;
+  }
+  .cover-title-ko {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--gold-light);
+    margin-bottom: 20px;
+    display: block;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .cover-meta-item { }
+  .cover-meta-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #888;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .cover-meta-value {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 16px;
+    color: var(--gold-light);
+    font-weight: 500;
+  }
+
+  /* ── NAV ── */
+  .toc {
+    background: var(--paper-warm);
+    border-bottom: 1px solid var(--border);
+    padding: 0 60px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+  .toc-link {
+    display: block;
+    padding: 18px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink-light);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .toc-link:hover {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  /* ── LAYOUT ── */
+  .main { max-width: 1100px; margin: 0 auto; padding: 60px 40px; }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 60px;
+    animation: fadeUp 0.5s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .section:nth-child(2) { animation-delay: 0.05s; }
+  .section:nth-child(3) { animation-delay: 0.1s; }
+  .section:nth-child(4) { animation-delay: 0.15s; }
+  .section:nth-child(5) { animation-delay: 0.2s; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-num {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--gold);
+    font-family: 'DM Serif Display', serif;
+    font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .section-title small {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--ink-light);
+    margin-left: 8px;
+    letter-spacing: 1px;
+  }
+
+  /* ── INFO CARDS ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--gold);
+  }
+  .card.teal::before { background: var(--teal); }
+  .card.accent::before { background: var(--accent); }
+  .card.red::before { background: var(--red); }
+  .card-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .card-value {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .card-value.small { font-size: 16px; }
+  .card-sub {
+    font-size: 12px;
+    color: var(--ink-light);
+    margin-top: 6px;
+  }
+
+  /* ── BACKGROUND BOX ── */
+  .bg-box {
+    background: var(--gold-pale);
+    border: 1px solid var(--gold-light);
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+  }
+  .bg-box h4 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .bg-box ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .bg-box ul li {
+    padding-left: 16px;
+    position: relative;
+    font-size: 13px;
+    color: var(--ink-light);
+  }
+  .bg-box ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 10px;
+    top: 2px;
+  }
+  .bg-box ul li strong { color: var(--ink); }
+
+  /* ── HIGHLIGHT BADGE ── */
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .badge-gold { background: var(--gold-pale); color: var(--accent); border: 1px solid var(--gold-light); }
+  .badge-teal { background: #e8f4f4; color: var(--teal); border: 1px solid #c0dede; }
+  .badge-red  { background: #fdf0f0; color: var(--red); border: 1px solid #f5c6c6; }
+
+  /* ── TABLE ── */
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    min-width: 700px;
+  }
+  thead tr { background: var(--ink); color: #fff; }
+  thead th {
+    padding: 12px 14px;
+    text-align: left;
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+  tbody tr { border-bottom: 1px solid #eee; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: #fafafa; }
+  tbody td {
+    padding: 11px 14px;
+    color: var(--ink-light);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  tbody td:first-child { font-weight: 500; color: var(--ink); white-space: nowrap; }
+  .td-highlight { background: var(--gold-pale) !important; font-weight: 600 !important; color: var(--accent) !important; }
+  .td-teal { color: var(--teal) !important; font-weight: 600 !important; }
+  .td-red  { color: var(--red)  !important; font-weight: 600 !important; }
+
+  /* ── SCENARIO TABS ── */
+  .scenario-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .scenario-tab {
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    border: 2px solid var(--border);
+    background: #fff;
+    color: var(--ink-light);
+    transition: all 0.2s;
+    letter-spacing: 0.3px;
+  }
+  .scenario-tab.active {
+    background: var(--ink);
+    color: var(--gold);
+    border-color: var(--ink);
+  }
+  .scenario-panel { display: none; }
+  .scenario-panel.active { display: block; }
+
+  /* ── PENSION TIMELINE ── */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+    margin-bottom: 20px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold), var(--border));
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 16px 20px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -26px; top: 20px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--paper);
+    box-shadow: 0 0 0 2px var(--gold);
+  }
+  .timeline-year {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .timeline-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .timeline-body {
+    font-size: 12.5px;
+    color: var(--ink-light);
+    line-height: 1.65;
+  }
+  .timeline-amount {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--teal);
+    background: #e8f4f4;
+    padding: 2px 10px;
+    border-radius: 20px;
+  }
+
+  /* ── INSURANCE ── */
+  .ins-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 14px;
+  }
+  .ins-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+  }
+  .ins-card-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ins-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 12px;
+    color: var(--ink-light);
+  }
+  .ins-meta-row {
+    display: flex;
+    gap: 8px;
+  }
+  .ins-meta-label {
+    color: #aaa;
+    min-width: 60px;
+    flex-shrink: 0;
+  }
+
+  /* ── NOTE/FOOTNOTE ── */
+  .footnotes {
+    background: var(--paper-warm);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 11.5px;
+    color: #888;
+    line-height: 1.8;
+    margin-top: 16px;
+  }
+  .footnotes p { margin-bottom: 4px; }
+
+  /* ── ALERT ── */
+  .alert {
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 12.5px;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .alert-warn {
+    background: #fff8e1;
+    border: 1px solid #ffe082;
+    color: #7a5c00;
+  }
+  .alert-info {
+    background: #e8f4f4;
+    border: 1px solid #c0dede;
+    color: var(--teal);
+  }
+  .alert-icon { flex-shrink: 0; font-size: 16px; }
+
+  /* ── DIVIDER ── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 32px 0;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    .toc { display: none; }
+    .cover { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    .section { page-break-inside: avoid; }
+  }
+
+  sup {
+    font-size: 9px;
+    color: var(--gold);
+    cursor: help;
+    font-weight: 700;
+    vertical-align: super;
+    margin-left: 2px;
+  }
+  @media (max-width: 680px) {
+    .cover { padding: 48px 24px 40px; }
+    .cover-title { font-size: 32px; }
+    .main { padding: 32px 16px; }
+    .toc { padding: 0 16px; }
+    table { font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════ COVER ══════════════ -->
+<div class="cover">
+  <div class="cover-eyebrow">Life Transition Plan</div>
+  <div class="cover-title">Retirement</div>
+  <span class="cover-title-ko">은퇴 후 생애전환 준비 계획</span>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">작성일</span>
+      <span class="cover-meta-value">2026. 04. 22</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">주체</span>
+      <span class="cover-meta-value">연우 Family</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">예정 퇴직일</span>
+      <span class="cover-meta-value">2029. 09 (만 60세)</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ NAV ══════════════ -->
+<nav class="toc">
+  <a href="#s1" class="toc-link">Ⅰ. 배경</a>
+  <a href="#s2" class="toc-link">Ⅱ. 자산운용계획</a>
+  <a href="#s3" class="toc-link">Ⅲ. 연도별 시나리오</a>
+  <a href="#s4" class="toc-link">Ⅳ. 연금 타임라인</a>
+  <a href="#s5" class="toc-link">Ⅴ. 연우 계획</a>
+  <a href="#s6" class="toc-link">Ⅵ. 보험</a>
+  <a href="#s7" class="toc-link">Ⅶ. 예물·절세상품</a>
+  <a href="#s8" class="toc-link">Ⅷ. 첨부</a>
+</nav>
+
+<div class="main">
+
+<!-- ══════════════ Ⅰ. 배경 ══════════════ -->
+<section class="section" id="s1">
+  <div class="section-header">
+    <div class="section-num">Ⅰ</div>
+    <div class="section-title">배경 <small>Background</small></div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-label">소득 대체율 목표</span>
+      <div class="card-value">70%</div>
+      <div class="card-sub">은퇴 전 소득 대비 (대출 상환 전제)</div>
+    </div>
+    <div class="card teal">
+      <span class="card-label">2인 부부 적정 생활비</span>
+      <div class="card-value">월 350만원</div>
+      <div class="card-sub">KB 2025.9 기준 (서울 300만, '21.8 → 350만, '25.9)</div>
+    </div>
+    <div class="card accent">
+      <span class="card-label">예정 정년</span>
+      <div class="card-value">2029. 9월</div>
+      <div class="card-sub">만 60세 / 임금피크 및 희망퇴직 진입 시 재설계 필요</div>
+    </div>
+  </div>
+
+  <div class="bg-box">
+    <h4>주요 자금 조달 계획</h4>
+    <ul>
+      <li>퇴직 후 국민연금 개시 전 생활비 → <strong>인도네시아 법인장 '25년 성과급</strong> 활용 (변경 '26.2)</li>
+      <li>주택담보대출 상환 → <strong>KB주식 매도(1억원) &amp; 원주 아파트 양도(1억원)</strong></li>
+      <li>신용대출(카카오뱅크) 상환 → <strong>KBDSI 퇴직금(약 1,400백만원)</strong> → 2026.3월 상환 완료</li>
+      <li>임금피크제 → <strong>임금피크 유예 제도 활용</strong>. 정년 전 희망퇴직·임금피크 진입 시 하기 Plan으로 자금 확보 후 운영</li>
+    </ul>
+  </div>
+
+  <div class="bg-box">
+    <h4>노후생활 3단계 연금 구조</h4>
+    <ul>
+      <li><strong>1단계</strong> 국민연금 (NPS)</li>
+      <li><strong>2단계</strong> 퇴직연금 (DC / IRP)</li>
+      <li><strong>3단계</strong> 개인연금 (연금저축보험·신탁·펀드)</li>
+      <li><strong>(추가 재원)</strong> ISA 및 연금저축과 위탁계좌를 통한 주식(ETF 포함) 운영 수익 적극 활용</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════ Ⅱ. 자산운용계획 ══════════════ -->
+<section class="section" id="s2">
+  <div class="section-header">
+    <div class="section-num">Ⅱ</div>
+    <div class="section-title">자산운용계획 <small>Asset Management Plan · 단위: 만원</small></div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>구분</th>
+          <th>월 예상 수령액</th>
+          <th>수령 시기</th>
+          <th>최종 납입년도</th>
+          <th>월 납입액</th>
+          <th>현재 납입/예상 수급</th>
+          <th>최종 운영금액</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-highlight">국민연금</td>
+          <td class="td-teal">185만 (세후) <sup title="주1) 25년말 현재가치 예상 연금액(세후)">주1)</sup></td>
+          <td>만65세 '34.10~종신</td>
+          <td>만60세 '29.9</td>
+          <td>9→30만 <sup title="주2) 22.7월 기준, 26.2 본사 복귀 후 개인 302,570원/월로 변경">주2)</sup></td>
+          <td>10,536만 (331개월) <sup title="주2) 22.7월 기준">주2)</sup></td>
+          <td>11,817만 (401개월) <sup title="주1) 25년말 현재가치 예상 연금액(세후)">주1)</sup></td>
+        </tr>
+        <tr>
+          <td>퇴직연금(IRP) <br><small>→ DC 통합(23.1)</small></td>
+          <td>23만</td>
+          <td>만60세~ '29.9~'49.9</td>
+          <td>만60세 '29.8</td>
+          <td>—</td>
+          <td>2,545만 ('22.12)</td>
+          <td>39,850,000원 ('26.4)</td>
+        </tr>
+        <tr>
+          <td>DC전환 + IRP 30만 추가납<br><small style="color:var(--accent);font-weight:600">(*) 26년 재입사 이후 DB퇴직 적립액 포함</small></td>
+          <td class="td-teal">200만 <sup title="주4) 2023년 1월 DC전환 / 거치 120개월·3% / 연금 20년·4%">주4)</sup></td>
+          <td>만60세 '29.9~20년</td>
+          <td>만60세 '29.8</td>
+          <td>58만 <sup title="주5) 세후 기준 회사 분기 지급 월 58만원">주5)</sup>+30만 <sup title="주6) IRP 개인 월 자동이체 30만원">주6)</sup></td>
+          <td>30,618만 ('23.1) <sup title="주3) 2023.01.30 기준 DC전환 총액">주3)</sup></td>
+          <td>43,300만 ('26.2)</td>
+        </tr>
+        <tr>
+          <td>삼성생명 그린행복연금</td>
+          <td>60세 약20만<br>70세 약40만<br>80세 약47만</td>
+          <td>만60세 '29.9~종신</td>
+          <td>완료 ('05.8)</td>
+          <td>6.9만 (완료)</td>
+          <td>835만</td>
+          <td>835만</td>
+        </tr>
+        <tr>
+          <td>KB연금신탁 제1호</td>
+          <td class="td-teal">약 96만</td>
+          <td>만55세 '25.3~5년</td>
+          <td>만55세 '25.3</td>
+          <td>30→60만 <sup title="주7) 25.10부터 30만원 증액, 월 60만 자동이체">주7)</sup></td>
+          <td>4,800만 ('26.2)</td>
+          <td>중도해지 소득세 800만</td>
+        </tr>
+        <tr>
+          <td>KB생명 100세연금</td>
+          <td class="td-teal">약 76만</td>
+          <td>만60세 '29.7~5년</td>
+          <td>완료 ('23.7)</td>
+          <td>30만 (완료)</td>
+          <td>3,420만 ('22.12)</td>
+          <td>3,600만</td>
+        </tr>
+        <tr>
+          <td>KB증권 ISA <small>('26.4 신규)</small></td>
+          <td>25만 (원금 2,600+21%)</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>1,810만</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>KB증권 연금저축 <small>('26.4 신규)</small></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>751만</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>토스증권 <small>('26.4 신규)</small></td>
+          <td class="td-teal">+수익 (→차량구매)</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>3,000만</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>KB증권 CMA <small>('26.4 신규)</small></td>
+          <td>토스 이체('26.5)</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>400만→0</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td class="td-highlight">KB주식</td>
+          <td>배당 연 300만(배당금)</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>761주</td>
+          <td>매도 목표가 26만원</td>
+        </tr>
+        <tr>
+          <td>아파트담보대출(우리은행)</td>
+          <td class="td-red">잔액 2.01억 ('26.4)</td>
+          <td colspan="2">상환: KB주식매도(약 1.2억) &amp; 원주아파트매도</td>
+          <td colspan="3">정년퇴직 전 실행. 재직 중에는 소득공제·주가 상승 기대로 주식 및 아파트 매도 미진행</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footnotes">
+    <p>주1) 25년말 현재가치 예상 연금액(세후) → 26년 재입사 이후 증액으로 약 월 +20만 예상</p>
+    <p>주2) 22.7월 기준, 26.2 본사 복귀 후 개인 302,570원/월로 변경</p>
+    <p>주3) 2023.01.30 기준 DC전환 총액</p>
+    <p>주4) 2023년 1월 DC전환 기준으로 산정 / 거치 120개월·3% / 연금 20년·4% → 개인 추가 IRP 적립액과 26년 재입사 이후 회사납입분 포함으로 증액(월 +40~50만) 예상</p>
+    <p>주5) 세후 기준 회사 분기 지급 월 58만원 / 주6) IRP 개인 월 자동이체 30만원 → 26년 재입사 이후 증액으로 최종 납입액 증가</p>
+    <p>주7) 25.10부터 30만원 증액, 월 60만 자동이체</p>
+  </div>
+</section>
+
+<!-- ══════════════ Ⅲ. 연도별 시나리오 ══════════════ -->
+<section class="section" id="s3">
+  <div class="section-header">
+    <div class="section-num">Ⅲ</div>
+    <div class="section-title">연도별 시나리오 <small>Annual Scenario · 단위: 만원</small></div>
+  </div>
+
+  <!-- SCENARIO TABS -->
+  <div class="scenario-tabs">
+    <button class="scenario-tab active" onclick="switchScenario(0)">Case-1. 정년퇴직</button>
+    <button class="scenario-tab" onclick="switchScenario(1)">Case-2. 임금피크 ('27.7 진입)</button>
+    <button class="scenario-tab" onclick="switchScenario(2)">Case-3. 희망퇴직 ('26.6)</button>
+    <button class="scenario-tab" onclick="switchScenario(3)">연금 수령기 ('30~)</button>
+  </div>
+
+  <!-- CASE 1 -->
+  <div class="scenario-panel active" id="sc0">
+    <div class="bg-box">
+      <h4>Case-1. 정년퇴직 시나리오 (2029.9, 만60세)</h4>
+      <ul>
+        <li>KB주식 매도(약 1.2억) &amp; 원주 아파트 매도 → 아파트담보대출 상환 (정년 퇴직 전 실행)</li>
+        <li>29.3월말 성과급(약 1천만) → 퇴직 후 3개월 생활비(월 330만)</li>
+        <li>재입사 후 매입 우리사주 54주 매도(단가 20만) → 약 1,000만, 월 360만 KB CMA 입금</li>
+      </ul>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>년도</th><th>아빠 나이</th><th>연우 나이</th><th>주요 이벤트</th><th>월 생활비(만)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2026</td><td>58</td><td>20</td><td>임금피크 2년차 (~26.9 만57세). KB주식·원주아파트 매도 준비</td><td>—</td></tr>
+          <tr><td>2027</td><td>59</td><td>21</td><td>임금피크 3년차 (~27.9 만58세)</td><td>—</td></tr>
+          <tr><td>2028</td><td>60</td><td>22</td><td>임금피크 4년차 (~28.9 만59세)</td><td>—</td></tr>
+          <tr><td>2029 ~9월</td><td>60</td><td>23</td><td>임금피크 5년차 / 9월 정년퇴직</td><td>—</td></tr>
+          <tr><td>2029 ~12월</td><td>61</td><td>23</td><td class="td-highlight">퇴직 후. 성과급 1천만 + 우리사주 매도 1천만 활용</td><td class="td-teal">690</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- CASE 2 -->
+  <div class="scenario-panel" id="sc1">
+    <div class="alert alert-warn">
+      <span class="alert-icon">⚠</span>
+      <div>임금피크 진입 시 급여: 700만 → <strong>540만</strong> (기본연봉 1/2 + 성과급 1/2 + 연차수당 1/2). 아파트 대출 조기상환, 생활비 축소/성과급 및 수당과 인니 및 주식 활용으로 생활비 부족분 해소.</div>
+    </div>
+    <div class="bg-box">
+      <h4>Case-2. 임금피크 '27.7월 진입 가정 (잔여 39개월)</h4>
+      <ul>
+        <li>아파트 대출 상환 ← KB주식 매도(1억) + 원주아파트 매도(1억). KB주식 잔액 2천만 생활비 활용</li>
+        <li>월 생활비 축소 (250만 → 200만), 내 지출 100만 절감</li>
+        <li>KB신탁 자동이체 60→30만 조정 / IRP 30만·우리사주 30만 유지</li>
+        <li>생활비 부족분: 인니 잔액 1천만+주식잔액 1천만(월 48만) + 성과급·연차(월 125만) + 복지포인트(월 30만)</li>
+        <li>여유자금: 인니 잔액 2천만(해외골프) + KB주식 잔액 1천만</li>
+      </ul>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>년도</th><th>아빠 나이</th><th>월 생활비</th><th>비고</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2027 ~6월</td><td>59</td><td>—</td><td>임금피크 이전 (정상 급여)</td></tr>
+          <tr><td>2027 7월~</td><td>59</td><td class="td-teal">540</td><td>임금피크 급여 540만 수령(월급 340만 / 지출 535만 / 충원 200만. 여유 7.7만)</td></tr>
+          <tr><td>2028</td><td>60</td><td class="td-teal">540</td><td></td></tr>
+          <tr><td>2029</td><td>61</td><td class="td-teal">540</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bg-box" style="margin-top:16px">
+      <h4>주요 통장 운용 (임금피크 시)</h4>
+      <ul>
+        <li><strong>토스증권(운영)</strong>: 인니 성과급 3,000만(차량매입-SK하이닉스 14주, 삼성전자 23주)</li>
+        <li><strong>토스증권(운영)</strong>: 인니 성과급 중 허/양 여행 경비 400만(RISE 미국AI전력인프라액티브 312주), 미송금 총 2,400만 중 일부(1,000만)</li>
+        <li><strong>KB연금저축(운영)</strong>: 751만 운영 중(RISE 미국AI전력인프라액티브 637주)</li>
+        <li><strong>KB ISA(운영)</strong>: 1,800만 운영 중(RISE 미국AI전력인프라액티브 645주, RISE 현대차고정피지컬AI 801주)</li>
+        <li><strong>KB 위탁계좌(운영)</strong>: KB주식 761주, RISE 현대차고정피지컬AI 86주 운영 중 → <strong style="color:var(--red)">KB주식은 임금피크 진입 전 매도하여 아파트 대출금 조기상환</strong></li>
+        <li><strong>KB CMA(예정)</strong>: 인니 잔액, KB주식 매도 잔액</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CASE 3 -->
+  <div class="scenario-panel" id="sc2">
+    <div class="alert alert-info">
+      <span class="alert-icon">ℹ</span>
+      <div>재고용 이후(2026.2.21)에 희망퇴직할 경우 실업급여 신청 시 조건은 피보험단위기간 <strong>180일(2026.8.21까지)</strong> 재직 필요함. 희망퇴직 전 반드시 확인.</div>
+    </div>
+    <div class="bg-box">
+      <h4>Case-3. 희망퇴직 2026.6월말 시나리오</h4>
+      <ul>
+        <li><strong>위로금 1억</strong> + 부가혜택(자녀 등록금 1천만, 건강검진 2년·배우자 포함)</li>
+        <li><strong>실업수당 9개월</strong> (최대 월 198만, 총 1,782만. 퇴직 후 12개월 이내에 신청해서 지급받아야 함. 12개월 이후는 신청 불가!)</li>
+        <li>아파트 대출 상환 ← KB주식 매도(1억) + 원주아파트 매도(1억)</li>
+        <li>KB신탁 조기수령: 월 78만 (27.5~33.9, 77개월)</li>
+        <li>인니 잔액 3천만 중 730만 → 생활비(27.5~29.9, 월 25만) / 770만 해외골프 / 1,500만 연우 등록금 3~5회차</li>
+        <li>KB증권 위탁계좌 주식 중 KB주식 이외 주식('RISE현대차고정피지컬AI') → 건강검진비 200만(28~29년) / KB주식 매도 잔액 720만 → 재산·자동차세 연 140만 + 명절 100만</li>
+        <li><strong>연우 등록금 6~7차 1,000만 → 재원 없음!</strong> KB주식 추가 수익으로 충당 기대. 연우 등록금 총 7차 재원(1~2차:희망퇴직 1천만, 3~5차 인니 잔액 1,500만, 6~7차 주식 추가 수익으로 충당)</li>
+      </ul>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>년도</th><th>아빠 나이</th><th>수입 구성</th><th>월 생활비(만)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2026 7월~</td><td>58</td><td class="td-teal">1차: 희망퇴직 위로금 월 256만 + 실업수당 198만 + KB주식매도 잔액 32만</td><td class="td-teal">486</td></tr>
+          <tr><td>2027 5월~</td><td>59</td><td>2차: 희망퇴직 위로금 월 256만 + KB신탁 78만 + KB주식매도 잔액 32만 + 인니 성과급 잔액 25만</td><td class="td-teal">380</td></tr>
+          <tr><td>2028</td><td>60</td><td>2차: 희망퇴직 위로금 월 256만 + KB신탁 78만 + KB주식매도 잔액 32만 + 인니 성과급 잔액 25만</td><td class="td-teal">380</td></tr>
+          <tr><td>2029</td><td>61</td><td>2차: 희망퇴직 위로금 월 256만 + KB신탁 78만 + KB주식매도 잔액 32만 + 인니 성과급 잔액 25만</td><td class="td-teal">380</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bg-box" style="margin-top:16px">
+      <h4>주요 통장 운용 (희망퇴직 시)</h4>
+      <ul>
+        <li><strong>토스증권</strong>: 인니 성과급(차량매입), 희망퇴직 위로금, 연우 등록금, KB신탁</li>
+        <li><strong>토스(이체)</strong>: KB ISA 1,800 중 1,600 / KB CMA 400(허/양 입금)→이체 기완료(2026.05)</li>
+        <li><strong>KB연금저축</strong>: 751만 운영 중. KB ISA 1,800만 중 200만 연금저축 계좌로 이체 후 통합 운영</li>
+        <li><strong>KB CMA</strong>: 인니 잔액, 실업수당, KB주식 매도 잔액</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 연금 수령기 -->
+  <div class="scenario-panel" id="sc3">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>년도</th><th>아빠나이</th><th>연우나이</th><th>삼성연금</th><th>NPS</th><th>퇴직연금</th><th>수입 구성(국민연금,퇴직연금,개인연금,절세상품 등) 및 재원 확보 방안</th><th>월 생활비(정년)</th><th>월 생활비(희망퇴직)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2030</td><td>62</td><td>24</td><td>40만</td><td>—</td><td>200만</td><td>신탁96<sup>(정년/임피유예)</sup>/78<sup>(희망퇴직)</sup>+연금저축25<sup>(정년/임피유예)</sup>/15<sup>(희망퇴직)</sup></td><td class="td-teal">437</td><td class="td-teal">409</td></tr>
+          <tr><td>2031</td><td>63</td><td>25</td><td>18만</td><td>—</td><td>200만</td><td>신탁96<sup>(정년/임피유예)</sup>/78<sup>(희망퇴직)</sup>+연금저축25<sup>(정년/임피유예)</sup>/15<sup>(희망퇴직)</sup></td><td class="td-teal">415</td><td class="td-teal">387</td></tr>
+          <tr><td>2032</td><td>64</td><td>26</td><td>19만</td><td>—</td><td>200만</td><td>신탁96<sup>(정년/임피유예)</sup>/78<sup>(희망퇴직)</sup>+연금저축25<sup>(정년/임피유예)</sup>/15<sup>(희망퇴직)</sup></td><td class="td-teal">416</td><td class="td-teal">388</td></tr>
+          <tr><td>2033</td><td>65</td><td>27</td><td>20만</td><td>—</td><td>200만</td><td>신탁96<sup>(정년/임피유예)</sup>/78<sup>(희망퇴직)</sup>+연금저축25<sup>(정년/임피유예)</sup>/15<sup>(희망퇴직)</sup></td><td class="td-teal">417</td><td class="td-teal">389</td></tr>
+          <tr><td>2034 ~9월</td><td>66</td><td>28</td><td>22만</td><td>—</td><td>200만</td><td>연우 결혼자금(서울 아파트 매도후 소형 아파트 재구매)</td><td class="td-teal">419</td><td class="td-teal">391</td></tr>
+          <tr><td>2034 10월~</td><td>66</td><td>28</td><td>23만</td><td class="td-teal">185만</td><td>200만</td><td>NPS 개시!</td><td class="td-teal">433</td><td class="td-teal">408</td></tr>
+          <tr><td>2035</td><td>67</td><td>29</td><td>23만</td><td class="td-teal">185만</td><td>200만</td><td></td><td class="td-teal">433</td><td class="td-teal">408</td></tr>
+          <tr><td>2039</td><td>71</td><td>33</td><td>55만</td><td class="td-teal">185만</td><td>200만</td><td>Wife 간병치매보험 납입완료</td><td class="td-teal">440</td><td>—</td></tr>
+          <tr><td>2043</td><td>75</td><td>37</td><td>39만</td><td class="td-teal">185만</td><td>200만</td><td>건강·운전자보험 납입완료</td><td class="td-teal">424</td><td>—</td></tr>
+          <tr><td>2048</td><td>80</td><td>42</td><td>43만</td><td class="td-teal">185만</td><td>200만</td><td class="td-highlight">종신보험 3,000만 수령</td><td class="td-teal">678</td><td>—</td></tr>
+          <tr><td>2049</td><td>81</td><td>43</td><td>118만</td><td class="td-teal">185만</td><td>—</td><td>퇴직연금 종료 (20년)</td><td class="td-teal">303</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ Ⅳ. 연금 타임라인 ══════════════ -->
+<section class="section" id="s4">
+  <div class="section-header">
+    <div class="section-num">Ⅳ</div>
+    <div class="section-title">연금 수령 타임라인 <small>Pension Timeline</small></div>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-year">2030.1 · 만 61세</div>
+      <div class="timeline-title">KB연금신탁 수령 개시 (5년)</div>
+      <div class="timeline-body">원계획: 만60세 개시. 납입 종료(30.1) → 희망퇴직 시 실업수당 9개월 신청/수령 종료이후(27.5월)로 조기 수령 전환(27.5~33.9월, 77개월)</div>
+      <span class="timeline-amount">월 약 96만원</span>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2030.1 · 만 61세</div>
+      <div class="timeline-title">KB생명 100세연금 개시 (5년확정)</div>
+      <div class="timeline-body">납입 완료 ('23.7). 5년 확정형 기준 연 9,016,656원</div>
+      <span class="timeline-amount">월 약 761,426원</span>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2030.1 · 만 61세</div>
+      <div class="timeline-title">퇴직연금(DC+IRP) 수령 개시 (20년)</div>
+      <div class="timeline-body">DC전환 총액 기준. 거치 120개월(3%) → 연금 20년(4%). 2026.2 재입사후 추가 납입 IRP 및 회사납입분으로 증액 예상</div>
+      <span class="timeline-amount">월 약 200만원</span>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2030.1 · 만 61세</div>
+      <div class="timeline-title">삼성생명 그린행복연금 개시 (종신)</div>
+      <div class="timeline-body">가입 1995.9 / 납입 완료 2005.8. 60세 후 단계별 증가.</div>
+      <span class="timeline-amount">60세~약 20만 / 70세~약 40만 / 80세~약 47만</span>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2034.10 · 만 65세</div>
+      <div class="timeline-title">국민연금(NPS) 개시 (종신)</div>
+      <div class="timeline-body">25년말 기준 현재가치 세후 예상 185만원/월. 납입 '29.9 종료.</div>
+      <span class="timeline-amount">월 약 185만원 (종신)</span>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2048.9 · 만 80세</div>
+      <div class="timeline-title">우체국 종신보험 건강축하금</div>
+      <div class="timeline-body">80세 생존 시 3천만원 지급</div>
+      <span class="timeline-amount">3,000만원 (일시금)</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ Ⅴ. 연우 계획 ══════════════ -->
+<section class="section" id="s5">
+  <div class="section-header">
+    <div class="section-num">Ⅴ</div>
+    <div class="section-title">연우 계획 <small>Child's Plan</small></div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card accent">
+      <span class="card-label">대학 (희망퇴직 시 재원 부족 주의)</span>
+      <div class="card-value small">임금피크 유예 활용</div>
+      <div class="card-sub">26~29.8 / 희망퇴직 시 재설계 필요</div>
+    </div>
+    <div class="card">
+      <span class="card-label">대학원 (2년)</span>
+      <div class="card-value small">총 6.4천만</div>
+      <div class="card-sub">등록금 연 2천만 + 용돈 월 100만(연 1.2천만)</div>
+    </div>
+    <div class="card teal">
+      <span class="card-label">취업전·후 (1년)</span>
+      <div class="card-value small">총 2.4천만</div>
+      <div class="card-sub">월 200만 (분가 시 월세 지원은 불가). 주택청약통장, 보험 등 추가 필요 경비 포함</div>
+    </div>
+    <div class="card accent">
+      <span class="card-label">결혼자금</span>
+      <div class="card-value small">약 1억</div>
+      <div class="card-sub">아파트 매도 → 10억 소형 아파트 재구매 / 잔액 2억 → 대학원·결혼 활용</div>
+    </div>
+    <div class="card">
+      <span class="card-label">연우 ETF 적립 (희망퇴직 시 철회)</span>
+      <div class="card-value small">목표 1천만</div>
+      <div class="card-sub">퇴직까지 연 250만. '26.4 토스 119만 적립(TIGER S&P500 등)</div>
+    </div>
+  </div>
+
+  <div class="alert alert-warn" style="margin-top:8px">
+    <span class="alert-icon">⚠</span>
+    <div>퇴직 후 유사시 비용 약 1.9억(3년 대학원 6.4천만 및 취업전후 2.4천만, 결혼자금 1억) → 조달 방안(아파트 매도 후 20평대 재구매). <strong>연우 등록금 6~7차(1,000만) 재원</strong> → KB주식 추가 수익 기대.</div>
+  </div>
+</section>
+
+<!-- ══════════════ Ⅵ. 보험 ══════════════ -->
+<section class="section" id="s6">
+  <div class="section-header">
+    <div class="section-num">Ⅵ</div>
+    <div class="section-title">보험 현황 <small>Insurance</small></div>
+  </div>
+
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:15px;margin-bottom:16px;color:var(--ink)">아빠 <span class="badge badge-gold">보장 중</span></h3>
+  <div class="ins-grid">
+    <div class="ins-card">
+      <div class="ins-card-name">KB생명 무배당 100세연금보험 <span class="badge badge-teal">납입완료</span></div>
+      <div class="ins-meta">
+        <div class="ins-meta-row"><span class="ins-meta-label">납입금액</span>3,600만원 (납입 완료 '23.7)</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">연금개시</span>2029.7.29 / 5년확정 월 761,426원</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">추가납입</span>수시납입 가능. 한도 71,700,000원</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">주요보장</span>고도재해장해 2,000만 / 재해장해(80%) 1,250만</div>
+      </div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-card-name">우체국 종신보험 <span class="badge badge-teal">납입완료</span></div>
+      <div class="ins-meta">
+        <div class="ins-meta-row"><span class="ins-meta-label">납입금액</span>3,000만원 (완료 '23.12)</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">특약만기</span>재해·질병특약 → 80세(2050.1.26) 소멸</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">건강축하금</span>80세 생존 시 3,000만원</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">연금전환</span>가능 (55세 이상, 해약환급금 일시납)</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">배당금</span>2016년 이후 배당률 ≤0 → 미발생</div>
+      </div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-card-name">삼성생명 그린행복연금 <span class="badge badge-teal">납입완료</span></div>
+      <div class="ins-meta">
+        <div class="ins-meta-row"><span class="ins-meta-label">계약금액</span>2,500만 / 납입 8,358,000원</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">가입일</span>1995.9.13 / 납입완료 2005.8</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">연금개시전</span>암사망유족연금 6천만 (만60세까지) / 일반사망 3천만</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">그린건강특약</span>만80세까지 / 31일 이상 입원 시 1일당 1만원</div>
+      </div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-card-name">라이나생명 무배당플러스암보험 <span class="badge badge-gold">갱신 중</span></div>
+      <div class="ins-meta">
+        <div class="ins-meta-row"><span class="ins-meta-label">갱신기간</span>~2030.1.8 (현재 18회 납부 중)</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">월납입</span>갱신 후 45,500원 (할인 45,045원)</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">주요보장</span>암진단 4,000만 / 고액암 4,000만 / 뇌출혈·심근경색 2,000만</div>
+      </div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-card-name">메리츠화재 운전자보험 M-Drive</div>
+      <div class="ins-meta">
+        <div class="ins-meta-row"><span class="ins-meta-label">납입기간</span>20년 월납 16,730원 (2042.5 완료)</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">주요보장</span>교통상해사망 1천만 / 벌금 3천만 / 변호사선임 3천만 / 지원금 2억</div>
+      </div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-card-name">메리츠화재 THE좋은알뜰한보장보험</div>
+      <div class="ins-meta">
+        <div class="ins-meta-row"><span class="ins-meta-label">납입기간</span>20년 월납 50,559원 (2043.5 완료)</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">보장만기</span>2059.5.4 (110세)</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">주요보장</span>뇌혈관·허혈성·뇌졸증 진단 각 1천만 / 수술 각 2천만</div>
+      </div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-card-name">KB데이터시스템 단체보험 <span class="badge badge-red">퇴직 시 전환 불가</span></div>
+      <div class="ins-meta">
+        <div class="ins-meta-row"><span class="ins-meta-label">갱신</span>2025.8.31 갱신</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">유의사항</span>근속 단절로 개인전환 불가 (근속 5년 이상 요건 미충족 예상)</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">실손보험</span>퇴직 시 5세대로 개인 전환 권장. 암/심장 담보는 전환 시 담보 0.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:15px;margin-bottom:16px;color:var(--ink)">연우 <span class="badge badge-gold">보장 중</span></h3>
+  <div class="ins-grid">
+    <div class="ins-card">
+      <div class="ins-card-name">동양생명 수호천사 꿈나무보장 <span class="badge badge-teal">납입완료</span></div>
+      <div class="ins-meta">
+        <div class="ins-meta-row"><span class="ins-meta-label">만기</span>2037.6.29 (30년)</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">납입완료</span>2017.6 (월납 29,700원 10년)</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">보장</span>보장보험 2천만 / 암진단·치료 각 1천만</div>
+      </div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-card-name">현대해상 굿앤굿어린이CI보험 <span class="badge badge-teal">납입완료</span></div>
+      <div class="ins-meta">
+        <div class="ins-meta-row"><span class="ins-meta-label">만기</span>2027.11.6 (20.5년)</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">납입완료</span>2022.6 (월납 35,960원 15년)</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">보장</span>기본 1천만 / 일반상해후유장해·대중교통·배상책임 각 1억</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <h3 style="font-family:'Noto Serif KR',serif;font-size:15px;margin-bottom:16px;color:var(--ink)">엄마 <span class="badge badge-gold">납입 중 일부 해지·재설계</span></h3>
+  <div class="ins-grid">
+    <div class="ins-card">
+      <div class="ins-card-name">현대라이프 유니버셜자유적립보험 <span class="badge badge-teal">납입완료</span></div>
+      <div class="ins-meta">
+        <div class="ins-meta-row"><span class="ins-meta-label">만기</span>2028.9.5 (20년)</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">만기생존</span>적립액 12,000,000원</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">보장</span>재해 외 사망·장해80% +600만 / 재해 사망·장해 +1천만</div>
+      </div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-card-name">현대라이프 신여성건강보험 여의보감 <span class="badge badge-teal">납입완료</span></div>
+      <div class="ins-meta">
+        <div class="ins-meta-row"><span class="ins-meta-label">만기</span>80세 (2054.9.5)</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">보장</span>특정암 진단 3천만 / 수술 5천만 / 일반암 1천만+수술 2천만</div>
+      </div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-card-name">동부화재 다이렉트건강플러스보험</div>
+      <div class="ins-meta">
+        <div class="ins-meta-row"><span class="ins-meta-label">만기</span>110세 (2085.3.28)</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">납입기간</span>20년 월납 44,500원 (~2033.3)</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">보장</span>암·급성심근경색·뇌졸증 진단 1억 / 상해사망·장해 1천만</div>
+      </div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-card-name">교보생명 무배당 교보여성CI보험</div>
+      <div class="ins-meta">
+        <div class="ins-meta-row"><span class="ins-meta-label">만기</span>종신(특약 80세 2055.9)</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">납입기간</span>20년 월납 116,770원 (~2035.9)</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">보장</span>주계약 3천만 / 암진단 2천만 / 재해상해 3천만 / 여성 1천만</div>
+      </div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-card-name">무배당THE든든한간병비치매보험</div>
+      <div class="ins-meta">
+        <div class="ins-meta-row"><span class="ins-meta-label">만기</span>2060.11.15 (41년)</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">납입기간</span>20년 월납 33,450원</div>
+        <div class="ins-meta-row"><span class="ins-meta-label">보장</span>치매 진단 500만 / 중증치매 1,000만 / 중증치매 간병생활금 월 50만(최대 종신)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ Ⅶ. 예물 · 절세상품 ══════════════ -->
+<section class="section" id="s7">
+  <div class="section-header">
+    <div class="section-num">Ⅶ</div>
+    <div class="section-title">예물 &amp; 절세 금융상품 <small>Gold Assets &amp; Tax-Saving Products</small></div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-label">금 예물 합계</span>
+      <div class="card-value">27돈</div>
+      <div class="card-sub">26년 5월 기준. 1돈 815,000원 기준 약 22,005,000원</div>
+    </div>
+    <div class="card teal">
+      <span class="card-label">연금저축 세액공제</span>
+      <div class="card-value small">최대 400만원 × 13.2%</div>
+      <div class="card-sub">연금저축 한도 세액공제 (주민세 포함)</div>
+    </div>
+    <div class="card teal">
+      <span class="card-label">퇴직연금 추가 공제</span>
+      <div class="card-value small">+300만원 × 13.2%</div>
+      <div class="card-sub">연금저축 외 IRP 추가 공제</div>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>예물 구분</th><th>내용</th><th>중량(돈)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>연우 반지 (4개)</td><td>매입일 2008.2 / 2008.11 / 기타 2건. 24k, 각 3.75g. 총 4돈. 원주 다보당, 종로 써니, 동명당 등. 약 2돈 가량은 제품 증명서 없음.</td><td>4돈</td></tr>
+        <tr><td>결혼예물 – 아내</td><td>2006.12.6. 반지 300 + 팔찌 500 + 목걸이 500 (24k). 원주 보금당</td><td>13돈</td></tr>
+        <tr><td>결혼예물 – 남편</td><td>목걸이 10돈 (24k). 증명서 없음</td><td>10돈</td></tr>
+        <tr><td class="td-highlight">합계</td><td class="td-highlight">27돈 × 815,000 = 22,005,000원 ('26년 5월 기준)</td><td class="td-highlight">27돈</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="bg-box">
+    <h4>절세 금융상품 안내 (2015.3.16 기준 참고)</h4>
+    <ul>
+      <li><strong>비과세종합저축</strong> — 만61세 이상 가입 가능, 한도 5천만원</li>
+      <li><strong>재산형성저축</strong> — 이자소득세 15.4% 대신 농특세 1.5% 부과</li>
+      <li><strong>소득공제장기펀드</strong> — 연간 6천만원 한도 40% 소득공제</li>
+      <li><strong>주택청약저축</strong> — 연간 240만원 한도 40% 소득공제</li>
+      <li><strong>연금저축</strong> — 최대 400만원 × 13.2% 세액공제</li>
+      <li><strong>퇴직연금(IRP)</strong> — 연금저축 외 300만원 × 13.2% 세액공제</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════ Ⅷ. 첨부 ══════════════ -->
+<section class="section" id="s8">
+  <div class="section-header">
+    <div class="section-num">Ⅷ</div>
+    <div class="section-title">첨부 — 금융사 문의 내역 <small>Appendix</small></div>
+  </div>
+
+  <div class="bg-box">
+    <h4>첨부-1(1). KB라이프생명 문의 (2026.4.22) — KB 100세연금 5년확정형</h4>
+    <ul>
+      <li>증권번호 11210673 / 연금개시일 2029.7.29</li>
+      <li>5년확정형: <strong>연 9,016,656원 / 월 761,426원</strong> (당일 기준, 공시이율 변동 시 변경)</li>
+      <li>수시 추가납입 가능 (정기 불가). 총 한도 <strong>71,700,000원</strong>. 공시이율 적용.</li>
+    </ul>
+  </div>
+
+  <div class="bg-box" style="margin-top:14px">
+    <h4>첨부-1(2). KB라이프생명 추가 문의 (2026.4.22) — 종신연금형 (체증형 5%)</h4>
+    <ul>
+      <li><strong>보증기간부 종신 20년 (체증 5%)</strong>: 연 1,423,799원 / 월 120,235원 (첫 회 기준)</li>
+      <li><strong>보증기간부 종신 100세 (체증 5%)</strong>: 연 1,219,959원 / 월 103,021원</li>
+      <li>체증형: 10차년도까지 직전년도 대비 5% 체증. 11차년도부터 10차년도 금액 고정. 공시이율 변동 연동.</li>
+    </ul>
+  </div>
+
+  <div class="bg-box" style="margin-top:14px">
+    <h4>첨부-2. 우체국 종신보험 Q&amp;A (2026.4.27 답변)</h4>
+    <ul>
+      <li>종신보험 계약일 2004.1.26 / 특약 3종(사망보장·재해치료·질병치료) → <strong>80세 만기 2050.1.26 소멸</strong></li>
+      <li>배당금 — 2016년 이후 배당률 ≤0으로 <strong>미발생</strong></li>
+      <li>연금전환 <strong>가능</strong>. 55세 이상 / 해약환급금+배당금 일시납. 가까운 우체국 금융창구 방문 신청 (평일 9:00~16:30)</li>
+      <li>연금전환 후 취소 — 연금개시일 전일(휴일이면 전전영업일)까지 창구 방문 취소 가능. 철회 불가.</li>
+    </ul>
+  </div>
+</section>
+
+</div><!-- /main -->
+
+<script>
+function switchScenario(idx) {
+  document.querySelectorAll('.scenario-tab').forEach((t, i) => {
+    t.classList.toggle('active', i === idx);
+  });
+  document.querySelectorAll('.scenario-panel').forEach((p, i) => {
+    p.classList.toggle('active', i === idx);
+  });
+}
+</script>
+</body>
+</html>
