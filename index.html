@@ -1226,6 +1226,88 @@
 
 </div><!-- /main -->
 
+<style>
+  #pw-overlay {
+    position: fixed;
+    inset: 0;
+    background: #1a1a2e;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+  #pw-overlay h2 {
+    font-family: 'DM Serif Display', serif;
+    color: #c9a84c;
+    font-size: 28px;
+    letter-spacing: 1px;
+  }
+  #pw-overlay p {
+    color: #aaa;
+    font-size: 13px;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  #pw-input {
+    padding: 12px 20px;
+    border-radius: 6px;
+    border: 2px solid #c9a84c;
+    background: #12122a;
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: 6px;
+    text-align: center;
+    width: 200px;
+    outline: none;
+  }
+  #pw-input:focus { border-color: #e8d5a3; }
+  #pw-btn {
+    padding: 10px 32px;
+    background: #c9a84c;
+    color: #1a1a2e;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: 1px;
+    transition: background 0.2s;
+  }
+  #pw-btn:hover { background: #e8d5a3; }
+  #pw-error {
+    color: #e57373;
+    font-size: 12px;
+    font-family: 'Noto Sans KR', sans-serif;
+    display: none;
+  }
+</style>
+
+<div id="pw-overlay">
+  <h2>Retirement Plan</h2>
+  <p>비밀번호를 입력하세요</p>
+  <input type="password" id="pw-input" placeholder="••••" maxlength="10"
+    onkeydown="if(event.key==='Enter') checkPw()">
+  <button id="pw-btn" onclick="checkPw()">확인</button>
+  <span id="pw-error">비밀번호가 올바르지 않습니다.</span>
+</div>
+
+<script>
+  function checkPw() {
+    const val = document.getElementById('pw-input').value;
+    if (val === '1405') {
+      document.getElementById('pw-overlay').style.display = 'none';
+      document.body.style.overflow = '';
+    } else {
+      document.getElementById('pw-error').style.display = 'block';
+      document.getElementById('pw-input').value = '';
+      document.getElementById('pw-input').focus();
+    }
+  }
+  document.body.style.overflow = 'hidden';
+</script>
+
 <button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="상단 메뉴로 이동">▲</button>
 
 <script>
