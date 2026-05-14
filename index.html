@@ -495,6 +495,39 @@
     vertical-align: super;
     margin-left: 2px;
   }
+  /* ── SCROLL TO TOP ── */
+  .scroll-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 999;
+    pointer-events: none;
+  }
+  .scroll-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .scroll-top:hover {
+    background: var(--gold);
+    color: var(--ink);
+  }
+
   @media (max-width: 680px) {
     .cover { padding: 48px 24px 40px; }
     .cover-title { font-size: 32px; }
@@ -1193,6 +1226,8 @@
 
 </div><!-- /main -->
 
+<button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="상단 메뉴로 이동">▲</button>
+
 <script>
 function switchScenario(idx) {
   document.querySelectorAll('.scenario-tab').forEach((t, i) => {
@@ -1202,6 +1237,15 @@ function switchScenario(idx) {
     p.classList.toggle('active', i === idx);
   });
 }
+
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    scrollTopBtn.classList.add('visible');
+  } else {
+    scrollTopBtn.classList.remove('visible');
+  }
+});
 </script>
 </body>
 </html>
